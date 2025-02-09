@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar select {
+            margin-right: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            border: none;
+        }
+        .navbar .avatar img {
+            height: 40px;
+            border-radius: 50%;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            padding: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar a.active {
+            background-color: #007bff; /* 突出显示当前页面 */
+            color: white;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="left">
+        <div class="logo">
+            <img src="image/MinistoreLogo.JPG" alt="Logo">
+        </div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+        </select>
+        <div class="avatar">
+            <img src="image/profile.jpg" alt="Avatar">
+        </div>
+    </div>
+</div>
+
+<div class="sidebar">
+    <h2>Menu</h2>
+    <a href="#dashboard" class="active">Dashboard</a> <!-- 突出显示当前页面 -->
+    <a href="#products">Products</a>
+    <a href="#orders">Orders</a>
+    <a href="#customers">Customers</a>
+    <a href="#reports">Reports</a>
+    <a href="#settings">Settings</a>
+</div>
+
+<div class="main-content">
+    <div class="card">
+        <h3>Statistics</h3>
+        <p>Total Sales: $50,000</p>
+        <p>Total Orders: 120</p>
+        <p>Total Customers: 80</p>
+    </div>
+
+    <div class="card">
+        <h3>Recent Products</h3>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+            <tr>
+                <td>Laptop A</td>
+                <td>Ultrabook</td>
+                <td>$1000</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Laptop B</td>
+                <td>Gaming</td>
+                <td>$1500</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Laptop C</td>
+                <td>Business</td>
+                <td>$1200</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

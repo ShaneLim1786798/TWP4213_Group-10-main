@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Laptops</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .top-bar {
+            width: 100%;
+            height: 4px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: black; /* Changed to black */
+           ;
+            position: fixed;
+            top: 4px; /* Adjusted to be below the top-bar */
+            width: 100%;
+            z-index: 999;
+        }
+        .navbar img {
+            height: 40px;
+        }
+        .navbar .nav-left,
+        .navbar .nav-right {
+            width: 300px;
+            display: flex;
+            gap: 10px;
+        }
+        .navbar .nav-left {
+            flex-grow: 1;
+        }
+        .navbar button {
+            background-color: #575757;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .navbar button:hover {
+            background-color: #444;
+        }
+        .navbar .search-bar {
+            flex-grow: 2;
+            margin: 0 20px;
+        }
+        .navbar .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 120px auto; /* Adjusted margin for spacing */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        .product img {
+            width: 150px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .cart-button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #ffa500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .cart-button:hover {
+            background-color: #cc8400;
+        }
+        .cart-button.added {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+        .tick {
+            margin-left: 5px;
+            color: green;
+            font-size: 16px;
+        }
+        .comment-section {
+            margin-top: 30px;
+        }
+        .comment-box {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+        .submit-button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .submit-button:hover {
+            background-color: #005f73;
+        }
+        .comment-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .comment-list li {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            font-size: 20px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .rating input:checked ~ label,
+        .rating input:hover ~ label {
+            color: #f5b301;
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .pagination button {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .pagination button:hover {
+            background-color: #0056b3;
+        }
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="image/ministore.jpeg" alt="Logo">
+            <button>Home</button>
+            <button>Product</button>
+            <button>About Us</button>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products..." oninput="searchProducts()">
+        </div>
+        <div class="nav-right">
+            <button>Login</button>
+            <button>Sign Up</button>
+            <button onclick="window.location.href='cart.html'">Cart</button>
+        </div>
+    </div>
+
+    <!-- Product Display Section -->
+    <div class="container" id="productContainer">
+        <!-- Product Content Here -->
+    </div>
+    <div class="pagination">
+        <button id="prevButton" onclick="prevPage()">Back</button>
+        <button id="nextButton" onclick="nextPage()">Next</button>
+    </div>
+
+    <script>
+            const products = [
+            { name: "Asus ROG Zephyrus G14 (2024)", image: "https://i5.walmartimages.com/asr/4d299c89-7b37-4f0e-9170-e36449818665.e2ede9634f6582e5e16dd377f9c0c007.jpeg", rating: "★★★★★", price: "RM 8,299", sold: 120, stock: 30, description: "The Asus ROG Zephyrus G14 (2024) offers remarkable balance of power, luxury, and portability.", comments: [] },
+            { name: "Asus ROG Strix Scar 16 (2024)", image: "https://static.digit.in/default/bf2fbd5a1ad5e1a1a3e58caaf3ace93873295ddf.jpeg", rating: "★★★★★", price: "RM 12,999", sold: 80, stock: 20, description: "The Asus ROG Strix Scar 16 (2024) is perfect for top-tier gaming with advanced cooling and immersive visuals.", comments: [] },
+            { name: "Alienware m16 (2024)", image: "https://i.pcmag.com/imagery/articles/00qNWwrihPO0eWewT4t8m6g-1.jpg", rating: "★★★★☆", price: "RM 9,999", sold: 60, stock: 15, description: "The Alienware m16 (2024) combines top-end gaming performance with a durable, stylish design.", comments: [] },
+            { name: "MSI Raider GE78 HX (2024)", image: "https://storage-asset.msi.com/global/picture/gallery/product_1677825809469d3b0757ad43da0e2de2362d6cad6d.png", rating: "★★★★☆", price: "RM 16,999", sold: 40, stock: 10, description: "The MSI Raider GE78 HX (2024) delivers exceptional gaming and graphical performance.", comments: [] },
+            { name: "Razer Blade 15 (2024)", image: "https://m.media-amazon.com/images/I/81txqAH-rSL._AC_SL1500_.jpg", rating: "★★★★★", price: "RM 13,499", sold: 90, stock: 25, description: "The Razer Blade 15 (2024) is a compact and powerful gaming laptop with exceptional performance.", comments: [] },
+            { name: "Alienware M16 R2", image: "http://ts3.mm.bing.net/th?id=OIP.NSq5zLszarFGbDUDRgGOSgHaEK&pid=15.1", rating: "★★★★★", price: "RM 12,499", sold: 200, stock: 50, description: "Alienware M16 R2 offers exceptional performance, designed for gamers and content creators.", comments: [] },
+            { name: "HP Omen 16", image: "https://th.bing.com/th/id/OIP._J6PuJwPt63CqPtAoP7dDgHaEK?w=304&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7", rating: "★★★★☆", price: "RM 8,999", sold: 350, stock: 80, description: "The HP Omen 16 is a powerful gaming laptop designed to deliver outstanding graphics and performance.", comments: [] },
+            { name: "Lenovo Legion Slim 5", image: "https://th.bing.com/th/id/OIP.SCNkfN0BLOSA1jk133jeCgHaFj?w=257&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7", rating: "★★★★☆", price: "RM 7,499", sold: 300, stock: 70, description: "Lenovo Legion Slim 5 combines performance and portability for gamers on the go.", comments: [] },
+            { name: "Acer Predator Helios Neo 14", image: "https://th.bing.com/th/id/OIP.jzWyzX0QJiqx46uQ0dQRMAHaF6?w=235&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7", rating: "★★★★★", price: "RM 9,499", sold: 150, stock: 40, description: "Acer Predator Helios Neo 14 brings advanced cooling and high-end gaming performance in a compact form.", comments: [] },
+            { name: "Lenovo Legion Pro 9i Gen 9", image: "https://cdn.mos.cms.futurecdn.net/zL35P4MwSfMTxSo2yvggY6-1200-80.jpg", rating: "★★★★☆", price: "RM 10,499", sold: 130, stock: 40, description: "Lenovo Legion Pro 9i Gen 9 is designed for professional gamers who demand high performance.", comments: [] },
+            { name: "Lenovo Legion Pro 7i Gen 9", image: "https://p1-ofp.static.pub//fes/cms/2024/09/12/q6fb2891avf5ok5et6ppuhuuilu0cq939626.png", rating: "★★★★☆", price: "RM 8,799", sold: 210, stock: 60, description: "Lenovo Legion Pro 7i Gen 9 delivers a powerful gaming experience with cutting-edge technology.", comments: [] },
+            { name: "ASUS ROG Strix SCAR 18 2024", image: "https://www.pcworld.com/wp-content/uploads/2024/01/asus-rog-strix-scar-18-6-1.jpg?resize=1240%2C826&quality=50&strip=all", rating: "★★★★★", price: "RM 14,999", sold: 110, stock: 30, description: "ASUS ROG Strix SCAR 18 (2024) offers exceptional power for competitive gamers with a massive display.", comments: [] },
+            { name: "ACER Predator Helios Neo 16", image: "https://th.bing.com/th/id/OIP.RQpvOF__ucmg2qM2bCVzOgAAAA?rs=1&pid=ImgDetMain", rating: "★★★★★", price: "RM 9,899", sold: 160, stock: 50, description: "Acer Predator Helios Neo 16 combines high performance with an excellent cooling system for gaming enthusiasts.", comments: [] }
+        ];
+
+        let currentPage = 1;
+        const itemsPerPage = 5;
+
+        function displayProducts() {
+            const productContainer = document.getElementById("productContainer");
+            productContainer.innerHTML = "";
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedProducts = products.slice(startIndex, endIndex);
+
+            paginatedProducts.forEach((product, index) => {
+                productContainer.innerHTML += 
+                    `<div class="product">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div>
+                            <h2>${product.name}</h2>
+                            <p><strong>Price:</strong> ${product.price}</p>
+                            <button class="button" onclick="viewDetails(${startIndex + index})">View Details</button>
+                        </div>
+                    </div>`;
+            });
+
+            document.getElementById("prevButton").disabled = currentPage === 1;
+            document.getElementById("nextButton").disabled = endIndex >= products.length;
+        }
+
+        function nextPage() {
+            currentPage++;
+            displayProducts();
+        }
+
+        function prevPage() {
+            currentPage--;
+            displayProducts();
+        }
+
+        function searchProducts() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchInput));
+            displayFilteredProducts(filteredProducts);
+        }
+
+        function displayFilteredProducts(filteredProducts) {
+            const productContainer = document.getElementById("productContainer");
+            productContainer.innerHTML = "";
+
+            filteredProducts.forEach((product, index) => {
+                productContainer.innerHTML += 
+                    `<div class="product">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div>
+                            <h2>${product.name}</h2>
+                            <p><strong>Price:</strong> ${product.price}</p>
+                            <button class="button" onclick="viewDetails(${index})">View Details</button>
+                        </div>
+                    </div>`;
+            });
+
+            document.getElementById("prevButton").disabled = true;
+            document.getElementById("nextButton").disabled = true;
+        }
+
+        function viewDetails(index) {
+            const product = products[index];
+            let commentsHtml = '';
+            const storedComments = JSON.parse(localStorage.getItem(product.name)) || [];
+            storedComments.forEach(comment => {
+                commentsHtml += `<li><strong>${comment.username} (${comment.rating}):</strong> ${comment.comment}</li>`;
+            });
+            document.getElementById("productContainer").innerHTML = 
+                `<h1>${product.name}</h1>
+                <img src="${product.image}" alt="${product.name}" style="width: 100%; max-width: 600px; border-radius: 10px;">
+                <p><strong>Rating:</strong> ${product.rating}</p>
+                <p><strong>Price:</strong> ${product.price}</p>
+                <p><strong>Sold:</strong> <span id="sold">${product.sold}</span></p>
+                <p><strong>Stock:</strong> <span id="stock">${product.stock}</span></p>
+                <p><strong>Description:</strong> ${product.description}</p>
+                <input type="number" id="quantity" min="1" max="${product.stock}" value="1">
+                <button class="cart-button" onclick="addToCart(this, ${index})">Add to Cart</button>
+                <h2>Comments</h2>
+                <ul class="comment-list">${commentsHtml}</ul>
+                <div class="comment-section">
+                    <h2>Leave a Comment</h2>
+                    <textarea id="commentBox" class="comment-box" rows="3" placeholder="Write your comment..."></textarea>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                    </div>
+                    <button class="submit-button" onclick="submitComment(${index})">Submit</button>
+                </div>
+                <button class="button" onclick="displayProducts()">Back to Products</button>`;
+        }
+
+        function addToCart(button, index) {
+            const product = products[index];
+            const quantity = parseInt(document.getElementById("quantity").value);
+            if (quantity > product.stock) {
+                alert("Quantity exceeds stock available.");
+                return;
+            }
+
+            product.stock -= quantity;
+            product.sold += quantity;
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItem = cart.find(item => item.name === product.name);
+            if (cartItem) {
+                cartItem.quantity += quantity;
+            } else {
+                cart.push({ ...product, quantity });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            document.getElementById("stock").innerText = product.stock;
+            document.getElementById("sold").innerText = product.sold;
+
+            button.innerText = "Already Added";
+            button.classList.add("added");
+            button.disabled = true;
+            button.innerHTML += ' <span class="tick">✔</span>';
+        }
+
+        function submitComment(index) {
+            const commentBox = document.getElementById("commentBox");
+            const commentText = commentBox.value.trim();
+            if (commentText === "") return;
+
+            const rating = document.querySelector('input[name="rating"]:checked');
+            if (!rating) {
+                alert("Please select a rating.");
+                return;
+            }
+
+            const username = "Anonymous"; // You can replace this with a prompt to get the user's name
+            const ratingValue = "★".repeat(rating.value);
+
+            const comment = {
+                username,
+                rating: ratingValue,
+                comment: commentText
+            };
+
+            const product = products[index];
+            product.comments.push(comment);
+            localStorage.setItem(product.name, JSON.stringify(product.comments));
+
+            // Refresh the details view to show the new comment
+            viewDetails(index);
+
+            // Update the "Add to Cart" button state
+            const cartButton = document.querySelector('.cart-button');
+            if (cartButton) {
+                cartButton.innerText = "Already Added";
+                cartButton.classList.add("added");
+                cartButton.disabled = true;
+                cartButton.innerHTML += ' <span class="tick">✔</span>';
+            }
+        }
+
+        displayProducts();
+    </script>
+</body>
+</html>

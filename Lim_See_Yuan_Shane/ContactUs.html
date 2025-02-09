@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .right {
+            display: flex;
+        }
+        .navbar .logo {
+            margin-right: 20px;
+        }
+        .navbar .logo img {
+            height: 40px; /* Adjust the height as needed */
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .map {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .map a {
+            display: block;
+            position: relative;
+        }
+        .map a img {
+            width: 50%;
+            border-radius: 5px;
+        }
+        .map a .map-text {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .text-box {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e9e9e9;
+            text-align: center; /* Align text to the center */
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px; /* Add margin to separate it from the text box */
+        }
+        .info-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e9e9e9;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+            padding-left: 10px;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <div class="logo">
+                <img src="image/MinistoreLogo.JPG" alt="Logo">
+            </div>
+            <a href="#home">Home</a>
+            <a href="#product">Product</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="right">
+            <a href="#login">Login</a>
+            <a href="#signup">Sign Up</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="map">
+            <a href="https://maps.app.goo.gl/7KmX1VB5aAmYarvK7" target="_blank">
+                <img src="image/Contact us map.JPG" alt="Map to our location" width="50%">
+                <div class="map-text">Click here for location</div>
+            </a>
+        </div>
+        <div class="text-box">
+            <p><strong>Location:</strong> 6e, Jalan Laksamana 2, Taman Kota Laksamana, 75200 Melaka</p>
+        </div>
+        <div class="contact-info">
+            <div class="info-item">
+                <strong>Email:</strong> service@ministore.com
+            </div>
+            <div class="info-item">
+                <strong>Phone Number:</strong> +60 16-685-9333
+            </div>
+        </div>
+        <div class="message">
+            Feel free to contact us with any inquiries!
+        </div>
+    </div>
+</body>
+</html>

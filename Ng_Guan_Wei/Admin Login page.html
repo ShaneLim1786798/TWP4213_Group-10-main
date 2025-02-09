@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://pic.52112.com/180324/180324_127/48yAtQqkCL_small.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 40px;
+            margin-left: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            box-sizing: border-box; /* 修正输入框与外边框视觉位置不一致的问题 */
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* 修正输入框与外边框视觉位置不一致的问题 */
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #0472e8;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">
+        <img src="image/MinistoreLogo.JPG" alt="Logo">
+    </div>
+    <a href="http://127.0.0.1:3000/Lim_See_Yuan_Shane/index.html">Home</a>
+    <a href="http://127.0.0.1:3000/Lim_See_Yuan_Shane/AboutUs.html">About Us</a>
+    <a href="http://127.0.0.1:3000/Lim_See_Yuan_Shane/ContactUs.html">Contact Us</a>
+</div>
+
+<div class="login-container">
+    <h2>Administrator Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const correctUsername = "admin";
+        const correctPassword = "abc123";
+
+        if (username !== correctUsername) {
+            alert("Invalid Username."); 
+        } else if (password !== correctPassword) {
+            alert("Invalid password."); 
+        } else {
+            alert("Login Successful！");
+  
+            window.location.href = "http://127.0.0.1:3000/Admin Dashboard";
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .right {
+            display: flex;
+        }
+        .navbar .logo {
+            margin-right: 20px;
+        }
+        .navbar .logo img {
+            height: 40px; /* Adjust the height as needed */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .welcome {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        .top-sales {
+            margin-top: 20px;
+        }
+        .top-sales h2 {
+            text-align: center;
+            color: #333;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 10px;
+        }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 30%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #e9e9e9;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 200px; /* Set a fixed height */
+            object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+            border-radius: 5px;
+        }
+        .carousel-item p {
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <div class="logo">
+                <img src="https://i.imgur.com/UpuK6ZQ.jpeg" alt="Logo">
+            </div>
+            <a href="index.html">Home</a> <!-- Link to your Home section -->
+            <a href="../James_Ong_You_Hao/Product page.html">Product</a> <!-- Link to your Product section -->
+            <a href="AboutUs.html">About</a> <!-- Link to your About section -->
+            <a href="ContactUs.html">Contact</a> <!-- Link to your Contact section -->
+        </div>
+        <div class="right">
+            <a href="#login">Login</a> <!-- Link to your Login section -->
+            <a href="#signup">Sign Up</a> <!-- Link to your Sign-Up section -->
+        </div>
+    </div>
+    <div class="container">
+        <div id="home" class="welcome">
+            <h1>Welcome to Ministore</h1>
+            <p>Your go-to place for amazing products and services. Explore more about us and feel free to get in touch!</p>
+        </div>
+        <div id="product" class="top-sales">
+            <h2>Top Sales</h2>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://static.digit.in/default/bf2fbd5a1ad5e1a1a3e58caaf3ace93873295ddf.jpeg" alt="Asus ROG Zephyrus G14 (2024)">
+                    <p>Asus ROG Zephyrus G14 (2024)</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i5.walmartimages.com/asr/4d299c89-7b37-4f0e-9170-e36449818665.e2ede9634f6582e5e16dd377f9c0c007.jpeg" alt="Asus ROG Strix Scar 16 (2024)">
+                    <p>Asus ROG Strix Scar 16 (2024)</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pcmag.com/imagery/articles/00qNWwrihPO0eWewT4t8m6g-1.jpg" alt="Alienware m16 (2024)">
+                    <p>Alienware m16 (2024)</p>
+                </div>
+                <!-- Add more items as needed -->
+            </div>
+        </div>
+        <div id="about">
+            <!-- Your About Section Content -->
+        </div>
+        <div id="contact">
+            <!-- Your Contact Section Content -->
+        </div>
+        <div id="login">
+            <!-- Your Login Section Content -->
+        </div>
+        <div id="signup">
+            <!-- Your Sign-Up Section Content -->
+        </div>
+    </div>
+</body>
+</html>

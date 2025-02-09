@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #b39191;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .center {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar select {
+            margin-right: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            border: none;
+        }
+        .navbar .avatar img {
+            height: 40px;
+            border-radius: 50%;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #b39191;
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            padding: 10px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar a.active {
+            background-color: #898884; /* 突出显示当前页面 */
+            color: white;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="file"],
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #ff0d00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="left">
+            <div class="logo">
+    
+            </div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact"></a>
+        </div>
+        <div class="center">
+            <h1>Dashboard</h1>
+        </div>
+    
+        <div class="right">
+            </select>
+            <div class="avatar">
+                <img src="image/profile.jpg" alt="Avatar">
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar">
+        
+        <h1><img src="image/MinistoreLogo.JPG" alt="Logo"></h1>
+        <h2>Menu</h2>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Admin Dashboard" >Dashboard</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Products" class="active">Product category</a>
+        <a href="#orders">Orders</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Manage member">Member</a>
+        <a href="#reports">Reports</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Manage Service">Service</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Manage staff">Staff</a>
+        <a href="#settings">Settings</a>
+    </div>
+    
+
+<div class="main-content">
+    <div class="card">
+        <h3>Add Product</h3>
+        <form>
+            <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Product ID:</label>
+                <input type="text" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Category:</label>
+                <input type="text" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <button type="submit">Add Product</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>View Product Categories</h3>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Asus ROG Zephyrus G14 (2024)</td>
+                <td>RM 8299</td>
+                <td>Ultrabook</td>
+                <td><img src="https://dlcdnwebimgs.asus.com/gain/67B92400-DFFC-42FA-B2D9-A4EA34FDAE29/w185" alt="Laptop A"></td>
+                <td>
+                    <button>View Stock</button>
+                    <button>Mark as Sold Out</button>
+                </td>
+            </tr>
+            <!-- Add more product rows as needed -->
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>Update Product Details</h3>
+        <form>
+            <div class="form-group">
+                <label for="update-product-name">Product ID:</label>
+                <input type="text" id="update-product-name" name="update-product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="update-product-name">Product Name:</label>
+                <input type="text" id="update-product-name" name="update-product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="update-product-name">Category:</label>
+                <input type="text" id="update-product-name" name="update-product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="update-price">Price:</label>
+                <input type="text" id="update-price" name="update-price" required>
+            </div>
+            <div class="form-group">
+                <label for="update-description">Description:</label>
+                <textarea id="update-description" name="update-description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="update-photo">Photo:</label>
+                <input type="file" id="update-photo" name="update-photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <button type="submit">Update Product</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Delete Product </h3>
+        <form>
+            <div class="form-group">
+                <label for="delete-product-name">Product ID:</label>
+                <input type="text" id="delete-product-name" name="delete-product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="delete-product-name">Product Name:</label>
+                <input type="text" id="delete-product-name" name="delete-product-name" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Delete Product</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

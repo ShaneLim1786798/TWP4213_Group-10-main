@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #b39191;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .center {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .navbar select {
+            margin-right: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            border: none;
+        }
+        .navbar .avatar img {
+            height: 40px;
+            border-radius: 50%;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #b39191;
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            padding: 10px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar a.active {
+            background-color: #898884; /* 突出显示当前页面 */
+            color: white;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .text-position {
+            position: relative;
+            bottom: 10px;
+            left: 250px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #ff0d00; /* "Delete“的按钮改成红色后拍一张 */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="navbar">
+        <div class="left">
+            <div class="logo">
+    
+            </div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact"></a>
+        </div>
+        <div class="center">
+            <h1>Dashboard</h1>
+        </div>
+    
+        <div class="right">
+            </select>
+            <div class="avatar">
+                <img src="image/profile.jpg" alt="Avatar">
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar">
+        
+        <h1><img src="image/MinistoreLogo.JPG" alt="Logo"></h1>
+        <h2>Menu</h2>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Admin Dashboard" >Dashboard</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Products">Product category</a>
+        <a href="#orders">Orders</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Manage member" class="active">Member</a>
+        <a href="#reports">Reports</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Manage Service">Service</a>
+        <a href="http://127.0.0.1:3000/Ng_Guan_Wei/Manage staff">Staff</a>
+        <a href="#settings">Settings</a><!--看回GuildLine要的page是什么-->
+    </div>
+
+<div class="main-content">
+    <div class="card">
+        <h3>Add Member</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Member ID:</label>
+                <input type="text" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Contact Number:</label>
+                <input type="text" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Member ID:</label>
+                <input type="text" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Shipping Address:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <button type="submit">Add Member</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>View Members</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Profile Picture</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Bill Gates</td>
+                <td>billgates@outloook.com</td>
+                <td><img src="image/Bill Gates.jpg" alt="Bill Gates" width="220px" height="170px"></td>
+                <td>
+                    <button>Contact Number</button>
+                    <button>Shipping Address</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>Update Details</h3>
+        <form>
+            <div class="form-group">
+                <label for="update-email">Member ID:</label>
+                <input type="text" id="update-email" name="update-email" required>
+            </div>
+            <div class="form-group">
+                <label for="update-name">Name:</label>
+                <input type="text" id="update-name" name="update-name" required>
+            </div>
+            <div class="form-group">
+                <label for="update-email">Email:</label>
+                <input type="text" id="update-email" name="update-email" required>
+            </div>
+                        <div class="form-group">
+                <label for="update-email">Contact Number:</label>
+                <input type="text" id="update-email" name="update-email" required>
+            </div>
+            <div class="form-group">
+                <label for="update-email">Shipping Address:</label>
+                <input type="text" id="update-email" name="update-email" required>
+            </div>
+            <div class="form-group">
+                <label for="update-photo">Photo:</label>
+                <input type="file" id="update-photo" name="update-photo" accept="image/*">
+            </div>
+            
+            
+            <div class="form-group">
+                <button type="submit">Update Member</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Delete Member</h3>
+        <form>
+            <div class="form-group">
+                <label for="delete-name">Member ID:</label>
+                <input type="text" id="delete-name" name="delete-name" required>
+            </div>
+            <div class="form-group">
+                <label for="delete-name">Name:</label>
+                <input type="text" id="delete-name" name="delete-name" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Delete Member</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="text-position">
+    <p><em>Copyright &copy; 2025 MiniStore Inc. All rights reserved. </em></p>
+
+
+</body>
+</html>
