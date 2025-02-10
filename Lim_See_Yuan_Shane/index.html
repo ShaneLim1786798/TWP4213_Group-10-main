@@ -88,6 +88,7 @@
             height: 200px; 
             object-fit: cover; 
             border-radius: 5px;
+            cursor: pointer; /* Add cursor pointer for clickable images */
         }
         .carousel-item p {
             margin-top: 10px;
@@ -99,7 +100,7 @@
     <div class="navbar">
         <div class="left">
             <div class="logo">
-                <img src="https://i.imgur.com/UpuK6ZQ.jpeg" alt="Logo">
+                <img src="./image/MinistoreLogo.JPG" alt="Logo"> 
             </div>
             <a href="index.html">Home</a> 
             <a href="../James_Ong_You_Hao/Product page.html">Product</a> 
@@ -119,16 +120,16 @@
         <div id="product" class="top-sales">
             <h2>Top Sales</h2>
             <div class="carousel">
-                <div class="carousel-item">
-                    <img src="https://static.digit.in/default/bf2fbd5a1ad5e1a1a3e58caaf3ace93873295ddf.jpeg" alt="Asus ROG Zephyrus G14 (2024)">
+                <div class="carousel-item" onclick="navigateToProductPage('../James_Ong_You_Hao/Product page.html')">
+                    <img src="image/Asus ROG Zephyrus G14 (2024).webp" alt="Asus ROG Zephyrus G14 (2024)">
                     <p>Asus ROG Zephyrus G14 (2024)</p>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://i5.walmartimages.com/asr/4d299c89-7b37-4f0e-9170-e36449818665.e2ede9634f6582e5e16dd377f9c0c007.jpeg" alt="Asus ROG Strix Scar 16 (2024)">
+                <div class="carousel-item" onclick="navigateToProductPage('../James_Ong_You_Hao/Product page.html')">
+                    <img src="image/Asus ROG Strix Scar 16 (2024).webp" alt="Asus ROG Strix Scar 16 (2024)">
                     <p>Asus ROG Strix Scar 16 (2024)</p>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://i.pcmag.com/imagery/articles/00qNWwrihPO0eWewT4t8m6g-1.jpg" alt="Alienware m16 (2024)">
+                <div class="carousel-item" onclick="navigateToProductPage('../James_Ong_You_Hao/Product page.html')">
+                    <img src="image/Alienware m16 (2024).webp" alt="Alienware m16 (2024)">
                     <p>Alienware m16 (2024)</p>
                 </div>
                 <!-- Add more items as needed -->
@@ -147,5 +148,10 @@
             <!-- Your Sign-Up Section Content -->
         </div>
     </div>
+    <script>
+        function navigateToProductPage(productPagePath) {
+            window.location.href = productPagePath;
+        }
+    </script>
 </body>
 </html>
